@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
 	public float deathSpinMin = -100f;
 	public float deathSpinMax = 100f;
 
-	//private Vampire vampire;
+	private PlayerControl player;
 	private Animator anim;
 	private Transform frontCheck;
 	private bool dead = false;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
 	void Awake() {
 		anim = GetComponent<Animator>();
 		frontCheck = transform.gameObject.transform;
-		//player = GameObject.FindGameObjectWithTag("Player").GetComponent<Vampire>;
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
 		//score = GameObject.Find("Score").GetComponent<Score>();
 	}
 
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour {
 		}	
 	}
 
-	void OntriggerExit2D(Collider2D other) {
+	void OnTriggerExit2D(Collider2D other) {
 		if ( other.tag == "Player" ) {
 			isAttacking = false;
 			anim.SetBool ("isAttacking", isAttacking);
@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour {
 			isAttacking = true;
 			anim.SetBool ("isAttacking", isAttacking);
 			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-			//vampire.Health += powerAttack;
+			player.Health += powerAttack;
 		}
 	}
 
