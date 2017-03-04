@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 
 	public float moveSpeed = 2f;
 	public int HP = 2;
-	public int powerAttack = 10;
+	public int powerAttack = 1;
 	public GameObject hundredPointsUI;
 	public float deathSpinMin = -100f;
 	public float deathSpinMax = 100f;
@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
 	private PlayerControl player;
 	private Animator anim;
 	private Transform frontCheck;
+	private bool isFacingRight;
 	private bool dead = false;
 	private bool isStarting = true;
 	private bool isAppearing = true;
@@ -55,6 +56,14 @@ public class Enemy : MonoBehaviour {
 		if ( !dead && !isAttacking ) {
 			ResetAnimations ();
 			anim.SetBool ("isMoving", true);
+
+			float horizontal = (player.transform.position  - gameObject.transform.position).normalized.x;
+
+			if ( horizontal < 0.1 && isFacingRight )
+				Flip();
+			else if ( horizontal > 0.1 && !isFacingRight )
+				Flip();	
+			
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 ( -transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);	
 		}
 	}
@@ -93,7 +102,7 @@ public class Enemy : MonoBehaviour {
 			isAttacking = true;
 			anim.SetBool ("isAttacking", isAttacking);
 			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-			player.Health += powerAttack;
+			player.Health -= powerAttack;
 		}
 	}
 
@@ -101,6 +110,7 @@ public class Enemy : MonoBehaviour {
 		Vector3 enemyScale = transform.localScale;
 		enemyScale.x *= -1;
 		transform.localScale = enemyScale;
+		isFacingRight = !isFacingRight;
 	}
 
 	void ResetAnimations() {
@@ -116,6 +126,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	IEnumerator Die() {
+		Collider2D[] cols = GetComponents<Collider2D>();
+		foreach( Collider2D c in cols ) {
+			c.isTrigger = true;
+		}
+		GetComponent<Rigidbody2D> ().isKinematic = true;
 		yield return new WaitForSeconds(3.0f);
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		gameObject.SetActive (false);

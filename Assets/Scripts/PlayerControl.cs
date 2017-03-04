@@ -7,17 +7,20 @@ public class PlayerControl : MonoBehaviour
 	public float moveForce = 365f;			
 	public float maxSpeed = 5f;				
 	public float jumpForce = 1000f;			
-	private int health = 100;
 
+	private int health = 100000;
+	private Vector3 healthScale;
 	private bool jump = false;
 	private bool m_attackPressed = false;
 	private bool isAttacking = false;
 	private bool grounded = false;			
 	private Animator anim;					
-
+	private SpriteRenderer healthBar;
 
 	void Awake(){
 		anim = GetComponent<Animator>();
+		healthBar = GameObject.Find("HealthBar").GetComponent<SpriteRenderer>();
+		healthScale = healthBar.transform.localScale;
 	}
 
 
@@ -55,8 +58,8 @@ public class PlayerControl : MonoBehaviour
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 			jump = false;
 		}
+		UpdateHealthBar ();
 	}
-	
 	
 	void Flip () {
 		facingRight = !facingRight;
@@ -87,6 +90,12 @@ public class PlayerControl : MonoBehaviour
 		anim.SetBool ("attack", false);
 		isAttacking = false;
 		yield return null;
+	}
+
+	public void UpdateHealthBar () {
+		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.00001f, 1, 1);
+		print (health);
 	}
 
 	public int Health {
