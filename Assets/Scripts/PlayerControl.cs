@@ -7,13 +7,9 @@ public class PlayerControl : MonoBehaviour
 	public float moveForce = 365f;			
 	public float maxSpeed = 5f;				
 	public float jumpForce = 1000f;			
-<<<<<<< HEAD
-=======
-	private int health = 100;
-	private long score = 0;
->>>>>>> 797b254805c7a82236e8b26416c95801acd928e5
-
 	private int health = 100000;
+	private long score = 0;
+
 	private Vector3 healthScale;
 	private bool jump = false;
 	private bool m_attackPressed = false;
@@ -29,8 +25,7 @@ public class PlayerControl : MonoBehaviour
 	}
 
 
-	void Update()
-	{
+	void Update() {
 		m_attackPressed = Input.GetButtonDown("Fire1");
 
 		if(Input.GetButtonDown("Jump") && grounded)
