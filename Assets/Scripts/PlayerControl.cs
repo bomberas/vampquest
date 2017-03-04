@@ -7,6 +7,11 @@ public class PlayerControl : MonoBehaviour
 	public float moveForce = 365f;			
 	public float maxSpeed = 5f;				
 	public float jumpForce = 1000f;			
+<<<<<<< HEAD
+=======
+	private int health = 100;
+	private long score = 0;
+>>>>>>> 797b254805c7a82236e8b26416c95801acd928e5
 
 	private int health = 100000;
 	private Vector3 healthScale;
@@ -39,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate (){
 		float h = Input.GetAxis("Horizontal");
-		anim.SetFloat("Speed", Mathf.Abs(h));
+		//anim.SetFloat("Speed", Mathf.Abs(h));
 
 		if(h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
 			GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
@@ -79,6 +84,16 @@ public class PlayerControl : MonoBehaviour
 		if (other.tag == "Enemy") {
 			if (isAttacking)
 				other.GetComponent<Enemy>().Hurt();
+		}
+	}
+
+	public void CollectBonusItem(int score, int heal){
+		score += score;
+
+		if (health + heal > 100) {
+			health = 100;
+		} else {
+			health += heal;
 		}
 	}
 
