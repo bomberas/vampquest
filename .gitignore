@@ -1,0 +1,53 @@
+
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
+*.stackdump
+
+
+# VS/Rider/MD/Consulo
+ExportedObj/
+.consulo/
+.idea/
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+
+# Builds
+*.apk
+*.unitypackage
+*.app
+*.exe
+
+
+# Unity3D generated meta files
+*.pidb.meta
+
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+
+# Os generated
+.DS_Store
+.DS_Store?
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
