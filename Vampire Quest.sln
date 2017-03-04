@@ -1,14 +1,18 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{53D0590A-708E-71F8-95D2-392AE2BF71DF}") = "Vampire Quest", "Assembly-CSharp.csproj", "{1BAF3E3F-0154-3A74-7A92-AD9922C6EB05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{1BAF3E3F-0154-3A74-7A92-AD9922C6EB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAF3E3F-0154-3A74-7A92-AD9922C6EB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAF3E3F-0154-3A74-7A92-AD9922C6EB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAF3E3F-0154-3A74-7A92-AD9922C6EB05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
