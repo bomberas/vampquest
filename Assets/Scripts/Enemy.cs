@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour {
 	private bool isStarting = true;
 	private bool isAppearing = true;
 	private bool isAttacking = false;
-	//private Score score;
+	private Score score;
 
 	void Awake() {
 		anim = GetComponent<Animator>();
 		frontCheck = transform.gameObject.transform;
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-		//score = GameObject.Find("Score").GetComponent<Score>();
+		score = GameObject.Find("Score").GetComponent<Score>();
 	}
 
 	void FixedUpdate () {
@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour {
 		anim.SetBool ("isDead", dead);
 
 		// Increase the score by 100 points
-		//		score.score += 100;
+		score.score += 100;
 		StartCoroutine(Die());
 
 		Vector3 scorePos = transform.position;
