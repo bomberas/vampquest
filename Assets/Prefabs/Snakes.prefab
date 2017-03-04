@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212761126872722446}
   - component: {fileID: 95313809530288210}
   - component: {fileID: 114325701562820904}
+  - component: {fileID: 61511978210198902}
   m_Layer: 8
   m_Name: Snakes
   m_TagString: Untagged
@@ -36,12 +37,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529022683808528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -9.52, z: 0}
+  m_LocalPosition: {x: -8.87, y: -10.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61511978210198902
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529022683808528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.26914978, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.4182978, y: 2.24}
 --- !u!95 &95313809530288210
 Animator:
   serializedVersion: 3
@@ -70,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36450914aa6bc0429dcf5505a13a70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerAttack: 2
 --- !u!212 &212761126872722446
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,9 +115,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f18a9aec881b6d143ab9b287a3fe2c76, type: 3}
+  m_SortingLayerID: -1225088843
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 759c3d46cc581ea42bf612453256524e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
